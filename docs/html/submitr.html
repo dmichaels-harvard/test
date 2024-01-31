@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Implementation of smaht-submitr &mdash; submitr  documentation</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css" />
+
+  
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="_static/doctools.js"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="submitr.scripts package" href="submitr.scripts.html" />
+    <link rel="prev" title="Using smaht-submitr" href="usage.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            submitr
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="index.html">Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="installing_prerequisites.html">Installing Prerequisites</a></li>
+<li class="toctree-l1"><a class="reference internal" href="installation.html">Installing smaht-submitr</a></li>
+<li class="toctree-l1"><a class="reference internal" href="credentials.html">Credentials for smaht-submitr</a></li>
+<li class="toctree-l1"><a class="reference internal" href="usage.html">Using smaht-submitr</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Implementation of smaht-submitr</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#smaht-submitr-package">smaht-submitr package</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#module-submitr.base">submitr.base module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#module-submitr.exceptions">submitr.exceptions module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#module-submitr.submission">submitr.submission module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#submitr-subpackages">submitr subpackages</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="submitr.scripts.html">submitr.scripts package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="submitr.tests.html">submitr.tests package</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">submitr</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Implementation of smaht-submitr</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/submitr.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <div class="section" id="implementation-of-smaht-submitr">
+<h1>Implementation of smaht-submitr<a class="headerlink" href="#implementation-of-smaht-submitr" title="Permalink to this heading"></a></h1>
+<div class="section" id="smaht-submitr-package">
+<h2>smaht-submitr package<a class="headerlink" href="#smaht-submitr-package" title="Permalink to this heading"></a></h2>
+<div class="section" id="module-submitr.base">
+<span id="submitr-base-module"></span><h3>submitr.base module<a class="headerlink" href="#module-submitr.base" title="Permalink to this heading"></a></h3>
+</div>
+<div class="section" id="module-submitr.exceptions">
+<span id="submitr-exceptions-module"></span><h3>submitr.exceptions module<a class="headerlink" href="#module-submitr.exceptions" title="Permalink to this heading"></a></h3>
+<dl class="py exception">
+<dt class="sig sig-object py" id="submitr.exceptions.PortalPermissionError">
+<em class="property"><span class="pre">exception</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">submitr.exceptions.</span></span><span class="sig-name descname"><span class="pre">PortalPermissionError</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">server</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#submitr.exceptions.PortalPermissionError" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">PermissionError</span></code></p>
+</dd></dl>
+
+</div>
+<div class="section" id="module-submitr.submission">
+<span id="submitr-submission-module"></span><h3>submitr.submission module<a class="headerlink" href="#module-submitr.submission" title="Permalink to this heading"></a></h3>
+<dl class="py class">
+<dt class="sig sig-object py" id="submitr.submission.SubmissionProtocol">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">submitr.submission.</span></span><span class="sig-name descname"><span class="pre">SubmissionProtocol</span></span><a class="headerlink" href="#submitr.submission.SubmissionProtocol" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="submitr.submission.SubmissionProtocol.S3">
+<span class="sig-name descname"><span class="pre">S3</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'s3'</span></em><a class="headerlink" href="#submitr.submission.SubmissionProtocol.S3" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="submitr.submission.SubmissionProtocol.UPLOAD">
+<span class="sig-name descname"><span class="pre">UPLOAD</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'upload'</span></em><a class="headerlink" href="#submitr.submission.SubmissionProtocol.UPLOAD" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="submitr.submission.UploadMessageWrapper">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">submitr.submission.</span></span><span class="sig-name descname"><span class="pre">UploadMessageWrapper</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">uuid</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">no_query</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#submitr.submission.UploadMessageWrapper" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Class to provide consistent queries/messages to user when
+uploading file(s) to given File UUID.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="submitr.submission.UploadMessageWrapper.wrap_upload_function">
+<span class="sig-name descname"><span class="pre">wrap_upload_function</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">function</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">file_name</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#submitr.submission.UploadMessageWrapper.wrap_upload_function" title="Permalink to this definition"></a></dt>
+<dd><p>Wrap upload given function with messages conerning upload.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>function</strong> – Upload function to wrap</p></li>
+<li><p><strong>file_name</strong> – File to upload</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>Wrapped function</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="submitr.submission.compute_file_post_data">
+<span class="sig-prename descclassname"><span class="pre">submitr.submission.</span></span><span class="sig-name descname"><span class="pre">compute_file_post_data</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">filename</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">context_attributes</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#submitr.submission.compute_file_post_data" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="submitr.submission.compute_s3_submission_post_data">
+<span class="sig-prename descclassname"><span class="pre">submitr.submission.</span></span><span class="sig-name descname"><span class="pre">compute_s3_submission_post_data</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">ingestion_filename</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ingestion_post_result</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">other_args</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#submitr.submission.compute_s3_submission_post_data" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="submitr.submission.do_any_uploads">
+<span class="sig-prename descclassname"><span class="pre">submitr.submission.</span></span><span class="sig-name descname"><span class="pre">do_any_uploads</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">res</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">keydict</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">upload_folder</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ingestion_filename</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">no_query</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">subfolders</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#submitr.submission.do_any_uploads" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="submitr.submission.do_uploads">
+<span class="sig-prename descclassname"><span class="pre">submitr.submission.</span></span><span class="sig-name descname"><span class="pre">do_uploads</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">upload_spec_list</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">auth</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">folder</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">no_query</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">subfolders</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#submitr.submission.do_uploads" title="Permalink to this definition"></a></dt>
+<dd><p>Uploads the files mentioned in the give upload_spec_list.</p>
+<p>If any files have associated extra files, upload those as well.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>upload_spec_list</strong> – a list of upload_spec dictionaries, each of the form {‘filename’: …, ‘uuid’: …},
+representing uploads to be formed.</p></li>
+<li><p><strong>auth</strong> – a dictionary-form auth spec, of the form {‘key’: …, ‘secret’: …, ‘server’: …}
+representing destination and credentials.</p></li>
+<li><p><strong>folder</strong> – a string naming a folder in which to find the filenames to be uploaded.</p></li>
+<li><p><strong>no_query</strong> – bool to suppress requests for user input</p></li>
+<li><p><strong>subfolders</strong> – bool to search subdirectories within upload_folder for files</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>None</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="submitr.submission.execute_prearranged_upload">
+<span class="sig-prename descclassname"><span class="pre">submitr.submission.</span></span><span class="sig-name descname"><span class="pre">execute_prearranged_upload</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">path</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">upload_credentials</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">auth</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#submitr.submission.execute_prearranged_upload" title="Permalink to this definition"></a></dt>
+<dd><p>This performs a file upload using special credentials received from ff_utils.patch_metadata.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>path</strong> – the name of a local file to upload</p></li>
+<li><p><strong>upload_credentials</strong> – a dictionary of credentials to be used for the upload,
+containing the keys ‘AccessKeyId’, ‘SecretAccessKey’, ‘SessionToken’, and ‘upload_url’.</p></li>
+<li><p><strong>auth</strong> – auth info in the form of a dictionary containing ‘key’, ‘secret’, and ‘server’,
+and possibly other useful information such as an encryption key id.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="submitr.submission.extract_metadata_and_upload_credentials">
+<span class="sig-prename descclassname"><span class="pre">submitr.submission.</span></span><span class="sig-name descname"><span class="pre">extract_metadata_and_upload_credentials</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">response</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">filename</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">method</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">payload_data</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">uuid</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">schema_name</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#submitr.submission.extract_metadata_and_upload_credentials" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="submitr.submission.get_metadata_bundles_bucket_from_health_path">
+<span class="sig-prename descclassname"><span class="pre">submitr.submission.</span></span><span class="sig-name descname"><span class="pre">get_metadata_bundles_bucket_from_health_path</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">key</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">dict</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">str</span></span></span><a class="headerlink" href="#submitr.submission.get_metadata_bundles_bucket_from_health_path" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="submitr.submission.get_s3_encrypt_key_id">
+<span class="sig-prename descclassname"><span class="pre">submitr.submission.</span></span><span class="sig-name descname"><span class="pre">get_s3_encrypt_key_id</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">upload_credentials</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">auth</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#submitr.submission.get_s3_encrypt_key_id" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="submitr.submission.get_s3_encrypt_key_id_from_health_page">
+<span class="sig-prename descclassname"><span class="pre">submitr.submission.</span></span><span class="sig-name descname"><span class="pre">get_s3_encrypt_key_id_from_health_page</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">auth</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#submitr.submission.get_s3_encrypt_key_id_from_health_page" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="submitr.submission.resume_uploads">
+<span class="sig-prename descclassname"><span class="pre">submitr.submission.</span></span><span class="sig-name descname"><span class="pre">resume_uploads</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">uuid</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">server</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">env</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">bundle_filename</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">keydict</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">upload_folder</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">no_query</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">subfolders</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">app</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#submitr.submission.resume_uploads" title="Permalink to this definition"></a></dt>
+<dd><p>Uploads the files associated with a given ingestion submission. This is useful if you answered “no” to the query
+about uploading your data and then later are ready to do that upload.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>uuid</strong> – a string guid that identifies the ingestion submission</p></li>
+<li><p><strong>server</strong> – the server to upload to</p></li>
+<li><p><strong>env</strong> – the portal environment to upload to</p></li>
+<li><p><strong>bundle_filename</strong> – the bundle file to be uploaded</p></li>
+<li><p><strong>keydict</strong> – keydict-style auth, a dictionary of ‘key’, ‘secret’, and ‘server’</p></li>
+<li><p><strong>upload_folder</strong> – folder in which to find files to upload (default: same as ingestion_filename)</p></li>
+<li><p><strong>no_query</strong> – bool to suppress requests for user input</p></li>
+<li><p><strong>subfolders</strong> – bool to search subdirectories within upload_folder for files</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="submitr.submission.submit_any_ingestion">
+<span class="sig-prename descclassname"><span class="pre">submitr.submission.</span></span><span class="sig-name descname"><span class="pre">submit_any_ingestion</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">ingestion_filename</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ingestion_type</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">server</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">env</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">institution</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">project</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">lab</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">award</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">consortium</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">submission_center</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">app</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Literal</span><span class="p"><span class="pre">[</span></span><span class="s"><span class="pre">'cgap'</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="s"><span class="pre">'fourfront'</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="s"><span class="pre">'smaht'</span></span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">upload_folder</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">no_query</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">subfolders</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">submission_protocol</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'upload'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">show_details</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">post_only</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">patch_only</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">validate_only</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">validate_local</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">validate_local_no</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">validate_local_only</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">verbose</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">debug</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#submitr.submission.submit_any_ingestion" title="Permalink to this definition"></a></dt>
+<dd><p>Does the core action of submitting a metadata bundle.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>ingestion_filename</strong> – the name of the main data file to be ingested</p></li>
+<li><p><strong>ingestion_type</strong> – the type of ingestion to be performed (an ingestion_type in the IngestionSubmission schema)</p></li>
+<li><p><strong>server</strong> – the server to upload to</p></li>
+<li><p><strong>env</strong> – the portal environment to upload to</p></li>
+<li><p><strong>validate_only</strong> – whether to do stop after validation instead of proceeding to post metadata</p></li>
+<li><p><strong>app</strong> – an orchestrated app name</p></li>
+<li><p><strong>institution</strong> – the &#64;id of the institution for which the submission is being done (when app=’cgap’)</p></li>
+<li><p><strong>project</strong> – the &#64;id of the project for which the submission is being done (when app=’cgap’)</p></li>
+<li><p><strong>lab</strong> – the &#64;id of the lab for which the submission is being done (when app=’fourfront’)</p></li>
+<li><p><strong>award</strong> – the &#64;id of the award for which the submission is being done (when app=’fourfront’)</p></li>
+<li><p><strong>consortium</strong> – the &#64;id of the consortium for which the submission is being done (when app=’smaht’)</p></li>
+<li><p><strong>submission_center</strong> – the &#64;id of the submission_center for which the submission is being done (when app=’smaht’)</p></li>
+<li><p><strong>upload_folder</strong> – folder in which to find files to upload (default: same as bundle_filename)</p></li>
+<li><p><strong>no_query</strong> – bool to suppress requests for user input</p></li>
+<li><p><strong>subfolders</strong> – bool to search subdirectories within upload_folder for files</p></li>
+<li><p><strong>submission_protocol</strong> – which submission protocol to use (default: ‘s3’)</p></li>
+<li><p><strong>show_details</strong> – bool controls whether to show the details from the results file in S3.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="submitr.submission.upload_file_to_new_uuid">
+<span class="sig-prename descclassname"><span class="pre">submitr.submission.</span></span><span class="sig-name descname"><span class="pre">upload_file_to_new_uuid</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">filename</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">schema_name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">auth</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">context_attributes</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#submitr.submission.upload_file_to_new_uuid" title="Permalink to this definition"></a></dt>
+<dd><p>Upload file to a target environment.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>filename</strong> – the name of a file to upload.</p></li>
+<li><p><strong>schema_name</strong> – the schema_name to use when creating a new file item whose content is to be uploaded.</p></li>
+<li><p><strong>auth</strong> – auth info in the form of a dictionary containing ‘key’, ‘secret’, and ‘server’.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>item metadata dict or None</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="submitr.submission.upload_file_to_uuid">
+<span class="sig-prename descclassname"><span class="pre">submitr.submission.</span></span><span class="sig-name descname"><span class="pre">upload_file_to_uuid</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">filename</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">uuid</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">auth</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#submitr.submission.upload_file_to_uuid" title="Permalink to this definition"></a></dt>
+<dd><p>Upload file to a target environment.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>filename</strong> – the name of a file to upload.</p></li>
+<li><p><strong>uuid</strong> – the item into which the filename is to be uploaded.</p></li>
+<li><p><strong>auth</strong> – auth info in the form of a dictionary containing ‘key’, ‘secret’, and ‘server’.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>item metadata dict or None</p>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+<div class="section" id="submitr-subpackages">
+<h3>submitr subpackages<a class="headerlink" href="#submitr-subpackages" title="Permalink to this heading"></a></h3>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="submitr.scripts.html">submitr.scripts package</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="submitr.scripts.html#module-submitr.scripts.make_sample_fastq_file">submitr.scripts.make_sample_fastq_file module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="submitr.scripts.html#module-submitr.scripts.resume_uploads">submitr.scripts.resume_uploads module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="submitr.scripts.html#module-submitr.scripts.submit_metadata_bundle">submitr.scripts.submit_metadata_bundle module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="submitr.scripts.html#module-submitr.scripts.upload_item_data">submitr.scripts.upload_item_data module</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="submitr.tests.html">submitr.tests package</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="submitr.tests.html#module-submitr.tests.test_base">submitr.tests.test_base module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="submitr.tests.html#module-submitr.tests.test_exceptions">submitr.tests.test_exceptions module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="submitr.tests.html#module-submitr.tests.test_make_sample_fastq_file">submitr.tests.test_make_sample_fastq_file module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="submitr.tests.html#module-submitr.tests.test_resume_uploads">submitr.tests.test_resume_uploads module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="submitr.tests.html#module-submitr.tests.test_submission">submitr.tests.test_submission module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="submitr.tests.html#module-submitr.tests.test_submit_metadata_bundle">submitr.tests.test_submit_metadata_bundle module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="submitr.tests.html#module-submitr.tests.test_upload_item_data">submitr.tests.test_upload_item_data module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="submitr.tests.html#module-submitr.tests.test_utils">submitr.tests.test_utils module</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="usage.html" class="btn btn-neutral float-left" title="Using smaht-submitr" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="submitr.scripts.html" class="btn btn-neutral float-right" title="submitr.scripts package" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2020-2023 President and Fellows of Harvard College.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

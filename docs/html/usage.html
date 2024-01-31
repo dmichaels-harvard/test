@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Using smaht-submitr &mdash; submitr  documentation</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css" />
+
+  
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="_static/doctools.js"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Implementation of smaht-submitr" href="submitr.html" />
+    <link rel="prev" title="Credentials for smaht-submitr" href="credentials.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            submitr
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="index.html">Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="installing_prerequisites.html">Installing Prerequisites</a></li>
+<li class="toctree-l1"><a class="reference internal" href="installation.html">Installing smaht-submitr</a></li>
+<li class="toctree-l1"><a class="reference internal" href="credentials.html">Credentials for smaht-submitr</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Using smaht-submitr</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#formatting-files-for-submission">Formatting Files for Submission</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#submission">Submission</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#resuming-uploads">Resuming Uploads</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#getting-submission-info">Getting Submission Info</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="submitr.html">Implementation of smaht-submitr</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">submitr</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Using smaht-submitr</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/usage.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <div class="section" id="using-smaht-submitr">
+<h1>Using smaht-submitr<a class="headerlink" href="#using-smaht-submitr" title="Permalink to this heading"></a></h1>
+<p>Once you have finished installing this library into your virtual environment,
+you should have access to the <code class="docutils literal notranslate"><span class="pre">submit-metadata-bundle</span></code> command.
+There are 2 types of submissions: accessioning (new cases) and family history (pedigrees)
+which both use the <code class="docutils literal notranslate"><span class="pre">submit-metadata-bundle</span></code> command.</p>
+<div class="section" id="formatting-files-for-submission">
+<h2>Formatting Files for Submission<a class="headerlink" href="#formatting-files-for-submission" title="Permalink to this heading"></a></h2>
+<p>For more details on what file formats are accepted and how the information should be structured,
+see our submission help pages at the
+<a class="reference external" href="https://data.smaht.org/doc/">SMaHT Portal</a>.</p>
+<p>Most commonly, the file format recommended is an Excel spreadsheet file (e.g. <code class="docutils literal notranslate"><span class="pre">your_metadata_file.xlsx</span></code>),
+comprised of one or more sheets. Each sheet name must be the name of a SMaHT Portal entity or <cite>object</cite> defined within the system.</p>
+<p>Each sheet must have as its first row, a special <cite>header</cite> row, which enumerates the names of the object properties as the column names;
+each column name must match exactly the name of the property for the Portal object.
+Each sheet may contain any number of rows, each representing an instance of the object.</p>
+<p>Note that the first row which is entirely empty marks the end of the input, and any subsequenct rows will be entirely ignored.</p>
+<p>And similarly, the first column in the header column which is empty marks the end of the header,
+and any subsequent columns will be entirely ignored.</p>
+<p>A column value within a (non-header) row may be empty, but this means the value would be ignored
+when creating or updating the associated object. In order to delete a property value a special
+value <code class="docutils literal notranslate"><span class="pre">*delete*</span></code> should be used as the the property value.</p>
+</div>
+<div class="section" id="submission">
+<h2>Submission<a class="headerlink" href="#submission" title="Permalink to this heading"></a></h2>
+<p>The type of submission supported is called a “metadata bundles”, or <cite>accessioning</cite>.
+And the name of the command-line tool to initiate a submission is <code class="docutils literal notranslate"><span class="pre">submit-metadata-bundle</span></code>.
+A brief tour of this command, its arguments, and function is given below.
+To get help about the command, do:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">submit</span><span class="o">-</span><span class="n">metadata</span><span class="o">-</span><span class="n">bundle</span> <span class="o">--</span><span class="n">help</span>
+</pre></div>
+</div>
+<p>For many cases it will suffice simply to specify the metadata bundle file you want to upload,
+and the SMaHT environment name (such as <code class="docutils literal notranslate"><span class="pre">data</span></code> or <code class="docutils literal notranslate"><span class="pre">staging</span></code>) from your <code class="docutils literal notranslate"><span class="pre">~/.smaht-keys.json</span></code> keys file).
+For example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">submit</span><span class="o">-</span><span class="n">metadata</span><span class="o">-</span><span class="n">bundle</span> <span class="n">your_metadata_file</span><span class="o">.</span><span class="n">xlsx</span> <span class="o">--</span><span class="n">env</span> <span class="n">data</span>
+</pre></div>
+</div>
+<p>You can omit the <code class="docutils literal notranslate"><span class="pre">--env</span></code> option entirely if your <code class="docutils literal notranslate"><span class="pre">~/.smaht-keys.json</span></code> file has only one entry.</p>
+<p>This command should do everything, including uploading referenced file; it will prompt first for confirmation;
+see the <cite>Uploading Referenced Files</cite> section just below for more on this.</p>
+<p>If you belong to
+multiple consortia and/or submission centers, you can also add the <code class="docutils literal notranslate"><span class="pre">--consortium</span> <span class="pre">&lt;consortium&gt;</span></code>
+and <code class="docutils literal notranslate"><span class="pre">--submission-center</span> <span class="pre">&lt;submission-center&gt;</span></code> options; if you belong to only one of either,
+the command will automatically detect (based on your user profile) and use those.</p>
+<p><strong>Uploading Referenced Files</strong></p>
+<p>As mentioned above, after <code class="docutils literal notranslate"><span class="pre">submit-metadata-bundle</span></code> processes the main submission file, it will (after prompting) upload files referenced within the submission file. These files should reside
+in the same directory as the submission file.
+Or, if they do not, then yo must specify the directory where these files can be found, like this:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">submit</span><span class="o">-</span><span class="n">metadata</span><span class="o">-</span><span class="n">bundle</span> <span class="n">your_metadata_file</span><span class="o">.</span><span class="n">xlsx</span> <span class="o">--</span><span class="n">env</span> <span class="o">&lt;</span><span class="n">environment</span><span class="o">-</span><span class="n">name</span><span class="o">&gt;</span> <span class="o">--</span><span class="n">directory</span> <span class="o">&lt;</span><span class="n">path</span><span class="o">-</span><span class="n">to</span><span class="o">-</span><span class="n">files</span><span class="o">&gt;</span>
+</pre></div>
+</div>
+<p>The above commands will only look for the files to upload only directly within the specified directory
+(and not any sub-directories therein). To look within subdirectories, do:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">submit</span><span class="o">-</span><span class="n">metadata</span><span class="o">-</span><span class="n">bundle</span> <span class="n">your_metadata_file</span><span class="o">.</span><span class="n">xlsx</span> <span class="o">--</span><span class="n">env</span> <span class="o">&lt;</span><span class="n">environment</span><span class="o">-</span><span class="n">name</span><span class="o">&gt;</span> <span class="o">--</span><span class="n">directory</span> <span class="o">&lt;</span><span class="n">path</span><span class="o">-</span><span class="n">to</span><span class="o">-</span><span class="n">files</span><span class="o">&gt;</span> <span class="o">--</span><span class="n">subdirectories</span>
+</pre></div>
+</div>
+<p><strong>Valdation Only</strong></p>
+<p>To invoke the submission for validation only, without having SMaHT actually ingest anything into its data store, do:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">submit</span><span class="o">-</span><span class="n">metadata</span><span class="o">-</span><span class="n">bundle</span> <span class="n">your_metadata_file</span><span class="o">.</span><span class="n">xlsx</span> <span class="o">--</span><span class="n">env</span> <span class="o">&lt;</span><span class="n">environment</span><span class="o">-</span><span class="n">name</span><span class="o">&gt;</span> <span class="o">--</span><span class="n">validate</span><span class="o">-</span><span class="n">only</span>
+</pre></div>
+</div>
+<p>To be clear, this <cite>will</cite> submit the file to SMaHT for processing, but no data ingestion will take place, and any problems
+will be reported back to you from the SMaHT server. To sanity check the file you are submitting  <cite>before</cite> actually
+submitting it to SMaHT, you should use the <code class="docutils literal notranslate"><span class="pre">--check</span></code> option described now below.</p>
+<p><strong>Sanity Checking</strong></p>
+<p>To invoke the submission for with <cite>local</cite> sanity checking, where “local” means - <cite>before</cite> actually submitting to SMaHT, do:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">submit</span><span class="o">-</span><span class="n">metadata</span><span class="o">-</span><span class="n">bundle</span> <span class="n">your_metadata_file</span><span class="o">.</span><span class="n">xlsx</span> <span class="o">--</span><span class="n">env</span> <span class="o">&lt;</span><span class="n">environment</span><span class="o">-</span><span class="n">name</span><span class="o">&gt;</span> <span class="o">--</span><span class="n">check</span>
+</pre></div>
+</div>
+<p>And to invoke the submission for with <cite>only</cite> local sanity checking, without actually submitting to SMaHT at all, do:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">submit</span><span class="o">-</span><span class="n">metadata</span><span class="o">-</span><span class="n">bundle</span> <span class="n">your_metadata_file</span><span class="o">.</span><span class="n">xlsx</span> <span class="o">--</span><span class="n">env</span> <span class="o">&lt;</span><span class="n">environment</span><span class="o">-</span><span class="n">name</span><span class="o">&gt;</span> <span class="o">--</span><span class="n">check</span><span class="o">-</span><span class="n">only</span>
+</pre></div>
+</div>
+<p>These <code class="docutils literal notranslate"><span class="pre">--check</span></code> and <code class="docutils literal notranslate"><span class="pre">--check-only</span></code> options can be very useful and their use is encouraged.
+They ensure that everything is in order before sending the submission off to SMaHT for processing.
+In fact this (<code class="docutils literal notranslate"><span class="pre">--check</span></code> ) is actually the <cite>default</cite> behavior unless your user profile indicates that you are an <cite>admin</cite> user.
+To be more specific, these sanity checks include the following:</p>
+<ol class="arabic simple">
+<li><p>Ensures the basic integrity of the format of the submission file.</p></li>
+<li><p>Validates the objects defined within the submission file against the corresponding Portal schemas for these objects.</p></li>
+<li><p>Confirms that any objects referenced within the submission file are resolved; i.e. either already exist within the Portal, or are defined within the submission file itself.</p></li>
+<li><p>Checks that referenced files (to be subsequently uploaded) actually exist on the file system.</p></li>
+</ol>
+</div>
+<div class="section" id="resuming-uploads">
+<h2>Resuming Uploads<a class="headerlink" href="#resuming-uploads" title="Permalink to this heading"></a></h2>
+<p>When using <code class="docutils literal notranslate"><span class="pre">submit-metadata-bundle</span></code> you can choose <cite>not</cite> to upload any referenced files when prompted.
+In this case, you will probably want to manually upload them subsequently using the <code class="docutils literal notranslate"><span class="pre">resume-uploads</span></code> command.</p>
+<p>You can resume execution with the upload part by doing:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">resume</span><span class="o">-</span><span class="n">uploads</span> <span class="o">--</span><span class="n">env</span> <span class="o">&lt;</span><span class="n">environment</span><span class="o">-</span><span class="n">name</span><span class="o">&gt;</span> <span class="o">&lt;</span><span class="n">uuid</span><span class="o">&gt;</span>
+</pre></div>
+</div>
+<p>where the <code class="docutils literal notranslate"><span class="pre">uuid</span></code> argument is the UUID for the submission which should have been displayed in the output of the <code class="docutils literal notranslate"><span class="pre">submit-metadata-bundle</span></code> command.</p>
+<p>You can upload individual files referenced in the original submission separately by doing:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">resume</span><span class="o">-</span><span class="n">uploads</span> <span class="o">--</span><span class="n">env</span> <span class="o">&lt;</span><span class="n">environment</span><span class="o">-</span><span class="n">name</span><span class="o">&gt;</span> <span class="o">&lt;</span><span class="n">referenced</span><span class="o">-</span><span class="n">file</span><span class="o">-</span><span class="n">uuid</span><span class="o">-</span><span class="ow">or</span><span class="o">-</span><span class="n">accesssion</span><span class="o">-</span><span class="nb">id</span><span class="o">&gt;</span> <span class="o">--</span><span class="n">uuid</span> <span class="o">&lt;</span><span class="n">item</span><span class="o">-</span><span class="n">uuid</span><span class="o">&gt;</span>
+</pre></div>
+</div>
+<p>where the <code class="docutils literal notranslate"><span class="pre">&lt;referenced-file-uuid-or-accesssion-id&gt;</span></code> is the uuid (or the accession ID or accession based file name) of the
+individual file referenced (<cite>not</cite> the submission or metadata bundle UUID) which you wish to upload;
+this uuid (or accession ID or accession based file name) is included in the output of <code class="docutils literal notranslate"><span class="pre">submit-metadata-bundle</span></code>.</p>
+<p>For both of these commands above, you will be asked to confirm if you would like to continue with the stated action.
+If you would like to skip these prompts so the commands can be run by a
+scheduler or in the background, you can pass the <code class="docutils literal notranslate"><span class="pre">--no_query</span></code> or <code class="docutils literal notranslate"><span class="pre">-nq</span></code> argument, such as:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">submit</span><span class="o">-</span><span class="n">metadata</span><span class="o">-</span><span class="n">bundle</span> <span class="n">your_metadata_file</span><span class="o">.</span><span class="n">xlsx</span> <span class="o">--</span><span class="n">no_query</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="getting-submission-info">
+<h2>Getting Submission Info<a class="headerlink" href="#getting-submission-info" title="Permalink to this heading"></a></h2>
+<p>To view relevant information about a submission using, do:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">check</span><span class="o">-</span><span class="n">submission</span> <span class="o">--</span><span class="n">env</span> <span class="o">&lt;</span><span class="n">environment</span><span class="o">-</span><span class="n">name</span><span class="o">&gt;</span> <span class="o">&lt;</span><span class="n">uuid</span><span class="o">&gt;</span>
+</pre></div>
+</div>
+<p>where the <code class="docutils literal notranslate"><span class="pre">uuid</span></code> argument is the UUID for the submission which should have been displayed in the output of the <code class="docutils literal notranslate"><span class="pre">submit-metadata-bundle</span></code> command.</p>
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="credentials.html" class="btn btn-neutral float-left" title="Credentials for smaht-submitr" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="submitr.html" class="btn btn-neutral float-right" title="Implementation of smaht-submitr" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2020-2023 President and Fellows of Harvard College.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
